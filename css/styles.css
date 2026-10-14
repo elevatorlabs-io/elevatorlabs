@@ -1516,6 +1516,21 @@ button {
   font-size: 0.82rem;
 }
 
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.4rem;
+}
+
+.footer-legal a {
+  color: var(--text-light-muted);
+  transition: color var(--dur-fast) ease;
+}
+
+.footer-legal a:hover {
+  color: var(--text-light);
+}
+
 .social-icons {
   display: flex;
   gap: 0.6rem;
