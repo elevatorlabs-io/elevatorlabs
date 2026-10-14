@@ -26,7 +26,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--teal-600); outl
 
 main { padding: 2.5rem 0 3rem; }
 .product { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 0 0 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
-.product img { height: 44px; width: auto; display: block; }
+.product img { height: 52px; width: auto; display: block; }
 .product span { font: 500 0.9rem "Sora", sans-serif; color: var(--muted); padding-left: 1rem; border-left: 1px solid var(--line); }
 .layout { display: grid; gap: 2rem; }
 @media (min-width: 960px) { .layout { grid-template-columns: 14rem minmax(0, 1fr); gap: 3rem; } aside nav { position: sticky; top: 1.5rem; max-height: calc(100dvh - 3rem); overflow: auto; } }
