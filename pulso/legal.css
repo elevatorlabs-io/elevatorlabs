@@ -56,3 +56,11 @@ a { color: var(--teal-600); text-underline-offset: 3px; }
 .foot { background: var(--navy-950); color: #94a3b8; font-size: 0.85rem; }
 .foot .wrap { display: flex; gap: 1.5rem; flex-wrap: wrap; padding: 1.5rem 0; }
 .foot a { color: #cbd5e1; }
+h2 .num::after { content: ". "; }
+section ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+/* Índice: desplegable en pantallas pequeñas, siempre abierto en las grandes */
+.toc > summary { cursor: pointer; list-style: none; }
+.toc > summary::-webkit-details-marker { display: none; }
+.toc > summary::after { content: " ▾"; }
+.toc[open] > summary::after { content: " ▴"; }
+@media (min-width: 960px) { .toc > summary { pointer-events: none; } .toc > summary::after, .toc[open] > summary::after { content: none; } }

@@ -53,6 +53,20 @@ o con Python:
 python -m http.server 8080
 ```
 
+## Páginas legales
+
+En español, inglés, portugués y francés (prevalece el español), con selector de idioma (`?lang=es|en|pt|fr`):
+
+| Página | URL | Estilo |
+|---|---|---|
+| Términos y Condiciones Generales de Elevator Labs (marco de todos los productos) | `/terms-of-service` | `css/legal.css` + `js/legal.js` (marca Elevator Labs) |
+| Términos de servicio de Pulso (condiciones particulares) | `/pulso/terms-of-service` | `pulso/legal.css` + `pulso/legal.js` |
+| Política de tratamiento de datos personales de Pulso | `/pulso/privacy-policy` | `pulso/legal.css` + `pulso/legal.js` |
+
+- Titular: Elevator Labs como nombre comercial de su titular, con domicilio en Medellín; ley colombiana (Leyes 527 de 1999, 1480 de 2011 y 1581 de 2012). Cuando se constituya la sociedad, actualiza la sección «Identificación del titular» y el «Responsable» de la política de datos (los términos ya prevén la cesión).
+- Al cambiar un texto, cámbialo en los cuatro idiomas, conserva los mismos `id` de sección y actualiza la fecha de «Última actualización». Si el cambio es sustancial, los términos obligan a avisar con 15 días (30 si es un precio).
+- Compromisos operativos que los textos prometen y hay que cumplir: registros técnicos 90 días como máximo, copias de seguridad que roten en 30 días, retracto con devolución en 30 días y respuesta a consultas (10 días hábiles) y reclamos (15 días hábiles) en `info@elevatorlabs.io`.
+
 ## Formulario de contacto
 
 El formulario de la sección "Contacto" es una **demo estática**: al enviarlo solo muestra un mensaje de éxito en pantalla, no envía datos a ningún servidor. Para recibir mensajes reales, conéctalo a un servicio como:

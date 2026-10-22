@@ -30,6 +30,12 @@
   buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute('data-set-lang'), true); }); });
   show(pick(), false);
 
+  // Índice: cerrado en pantallas pequeñas (para llegar al texto sin desplazarse), abierto en las grandes.
+  var wide = window.matchMedia('(min-width: 960px)');
+  function syncToc() { document.querySelectorAll('details.toc').forEach(function (d) { d.open = wide.matches; }); }
+  syncToc();
+  if (wide.addEventListener) wide.addEventListener('change', syncToc);
+
   // Al ir a una sección, el título recibe el foco (útil con lector de pantalla).
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('aside a[href^="#"]');
