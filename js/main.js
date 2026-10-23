@@ -32,16 +32,18 @@
         applyTheme(next);
         return;
       }
-      // Con View Transitions: el nuevo tema se revela en un círculo que crece desde el botón
-      const r = themeBtn.getBoundingClientRect();
-      const x = r.left + r.width / 2;
-      const y = r.top + r.height / 2;
-      const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+      // Con View Transitions: «puertas de ascensor». El nuevo tema se abre desde el centro hacia los lados
+      // mientras el anterior retrocede y se oscurece.
       const transition = document.startViewTransition(() => applyTheme(next));
       transition.ready.then(() => {
+        const timing = { duration: 800, easing: "cubic-bezier(0.65, 0, 0.35, 1)" };
         root.animate(
-          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
-          { duration: 650, easing: "cubic-bezier(0.22, 1, 0.36, 1)", pseudoElement: "::view-transition-new(root)" }
+          { clipPath: ["inset(0 50% 0 50%)", "inset(0 0% 0 0%)"] },
+          { ...timing, pseudoElement: "::view-transition-new(root)" }
+        );
+        root.animate(
+          { transform: ["scale(1)", "scale(0.94)"], filter: ["brightness(1)", "brightness(0.55)"] },
+          { ...timing, pseudoElement: "::view-transition-old(root)" }
         );
       });
     });

@@ -71,7 +71,7 @@ Cada página tiene `title` y `description` propios, URL canónica, `hreflang` (`
 ## Diseño
 
 - Lenguaje editorial: columnas asimétricas, filetes finos en lugar de tarjetas, turquesa `#2dd4bf` solo como acento sobre negro `#060708` o blanco.
-- Tema: sigue la preferencia del sistema; el botón de la cabecera lo fija en `localStorage` (`theme`). Un script en línea del `<head>` lo aplica antes de pintar. Al cambiarlo, el nuevo tema se revela en un círculo desde el botón (View Transitions API); sin soporte, hace un fundido de colores, y con «reducir movimiento» cambia sin animación.
+- Tema: sigue la preferencia del sistema; el botón de la cabecera lo fija en `localStorage` (`theme`). Un script en línea del `<head>` lo aplica antes de pintar. Al cambiarlo, el nuevo tema se abre como unas puertas de ascensor, del centro hacia los lados, mientras el anterior retrocede (View Transitions API); sin soporte, hace un fundido de colores, y con «reducir movimiento» cambia sin animación.
 - Imágenes: no hay fotos de archivo. Cada servicio y la portada usan ilustraciones de `src/visuals.mjs` (los números son ilustrativos). **Añadir una:** exporta una función que devuelva HTML con la clase `ui`, dale estilos `ui-*` en unidades `em` y úsala en `services` (portada) o en `ART` (`src/pages/services.mjs`).
 - Menú móvil: se despliega de arriba abajo con los enlaces en cascada y la hamburguesa se convierte en X.
 - Tipografías: Sora (títulos) e Inter (texto) desde Google Fonts con `display=swap`.
