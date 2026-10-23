@@ -84,10 +84,11 @@ export const NAV = [
 
 export const SERVICE_LINKS = [
   ["/servicios/mejora-de-procesos", "Mejora de procesos"],
+  ["/servicios/integraciones-e-inteligencia-artificial", "Automatización e IA"],
   ["/servicios/desarrollo-de-software-a-medida", "Software a medida"],
   ["/servicios/desarrollo-de-aplicaciones-moviles", "Aplicaciones móviles"],
   ["/servicios/desarrollo-saas", "Plataformas SaaS"],
-  ["/servicios/integraciones-e-inteligencia-artificial", "Automatización e IA"],
+  ["/servicios/cloud-devops-y-auditoria", "Cloud, DevOps y auditoría"],
 ];
 
 /**
@@ -264,18 +265,19 @@ export function stackStrip() {
 </section>`;
 }
 
-// Diagrama de «pisos»: el método como un ascensor que sube piso a piso
+// Diagrama de «pisos»: el método como un ascensor que sube piso a piso.
+// Filas de arriba (P04) abajo (P00); cada barra es más larga que la anterior y se llena al aparecer.
 export function floorsFigure() {
   const floors = ["Diagnóstico", "Diseño de la mejora", "Construcción", "Adopción", "Mejora continua"];
-  const x0 = 44, w = 78, yb = 292, h = 60;
-  const grid = floors.map((_, i) => `<line class="grid" x1="36" x2="440" y1="${yb - i * h}" y2="${yb - i * h}"/><text class="num" x="0" y="${yb - i * h + 4}">P${String(i).padStart(2, "0")}</text>`).join("");
-  let d = `M${x0} ${yb}`;
-  floors.forEach((_, i) => { d += ` H${x0 + (i + 1) * w}` + (i < floors.length - 1 ? ` V${yb - (i + 1) * h}` : ""); });
-  const last = floors.length - 1;
-  const on = `M${x0 + last * w} ${yb - last * h} H${x0 + (last + 1) * w}`;
-  const labels = floors.map((f, i) => (i === last ? `<text class="lbl lbl-on" text-anchor="end" x="${x0 + (i + 1) * w}" y="${yb - i * h - 14}">${f}</text>` : `<text class="lbl" x="${x0 + i * w + 4}" y="${yb - i * h - 12}">${f}</text>`)).join("");
+  const rows = floors
+    .map((name, i) => ({ name, i }))
+    .reverse()
+    .map(
+      ({ name, i }) => `<li${i === floors.length - 1 ? ' class="is-top"' : ""} style="--i:${i}"><span class="fl-num">P${String(i).padStart(2, "0")}</span><span class="fl-main"><span class="fl-name">${name}</span><span class="fl-bar"><i style="--w:${20 + i * 20}%"></i></span></span></li>`
+    )
+    .join("");
   return `<figure class="floors" aria-hidden="true">
-  <svg viewBox="0 0 440 310" role="presentation">${grid}<path class="path" d="${d}"/><path class="path-on" d="${on}"/><circle class="dot" cx="${x0 + (last + 1) * w}" cy="${yb - last * h}" r="5"/>${labels}</svg>
-  <figcaption>Nuestro método: cada piso, una mejora medible en tu operación.</figcaption>
+  <ol class="fl-list">${rows}</ol>
+  <figcaption>Cada piso, una mejora medible en tu operación.</figcaption>
 </figure>`;
 }

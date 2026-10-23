@@ -16,7 +16,7 @@ export const dashboard = () => `
     </div>
     <div class="ui-chart"><small>Horas de trabajo manual por semana</small><div class="ui-bars">${[92, 88, 95, 90, 86, 70, 52, 41, 33, 29, 26, 24]
       .map((h, i) => `<span${i >= 5 ? ' class="on"' : ""} style="--h:${h}%"></span>`)
-      .join("")}</div><div class="ui-axis"><span>Antes</span><span>Automatización</span></div></div>
+      .join("")}</div><div class="ui-axis"><span>Antes</span><span>Con automatización</span></div></div>
   </div>
 </div>
 <div class="ui ui-toast"><span class="ui-ok">${ok}</span><div><strong>Pago conciliado</strong><small>Automático · hace 2 min</small></div></div>`;

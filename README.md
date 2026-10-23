@@ -63,6 +63,7 @@ Cada página tiene `title` y `description` propios, URL canónica, `hreflang` (`
 | `/servicios/desarrollo-de-software-a-medida` | desarrollo de software a medida |
 | `/servicios/desarrollo-de-aplicaciones-moviles` | desarrollo de aplicaciones móviles |
 | `/servicios/desarrollo-saas` | desarrollo de plataformas SaaS |
+| `/servicios/cloud-devops-y-auditoria` | cloud, DevOps, auditoría de software |
 
 **Añadir una página de servicio:** agrega un objeto al arreglo `SERVICES` de `src/pages/services.mjs` (`slug`, `short`, `name`, `title`, `description`, `h1`, `lead`, `what`, `why`, `tags`, `faqs`), añade su enlace a `SERVICE_LINKS` en `src/layout.mjs` y ejecuta el build: la página entra sola al sitemap.
 
@@ -76,7 +77,8 @@ Cada página tiene `title` y `description` propios, URL canónica, `hreflang` (`
 - Menú móvil: se despliega de arriba abajo con los enlaces en cascada y la hamburguesa se convierte en X.
 - Tipografías: Sora (títulos) e Inter (texto) desde Google Fonts con `display=swap`.
 - Carrusel de tecnologías: `STACK` en `src/layout.mjs`; nunca se detiene. Los logos van en gris y, al pasar el cursor, crecen y se ponen a color (los casi negros, listados en `MONO`, se invierten en modo oscuro). Queda estático con «reducir movimiento». Para añadir una, pon su SVG en `assets/images/tech/` y agrégala a `STACK`.
-- El diagrama de «pisos» de la sección Método representa el ciclo de mejora (`floorsFigure()`).
+- El diagrama de «pisos» de la sección Método representa el ciclo de mejora (`floorsFigure()`): una fila por piso con barras que crecen y se llenan al aparecer, y la cabina del ascensor en el último piso.
+- Enlaces a secciones desde otra página (como la miga «Servicios» → `/#servicios`): `js/main.js` repite el salto al terminar de cargar, porque el nativo se pierde mientras cargan fuentes e ilustraciones.
 
 ## Imágenes para redes
 

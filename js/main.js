@@ -4,6 +4,19 @@
   const root = document.documentElement;
   root.classList.add("js");
 
+  /* Llegar desde otra página a una sección (p. ej. /#servicios desde las migas de pan):
+     el salto nativo ocurre antes de que carguen fuentes e ilustraciones y se pierde,
+     así que se repite cuando la página termina de cargar. */
+  if (location.hash.length > 1) {
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      const go = () => target.scrollIntoView({ behavior: "instant", block: "start" });
+      go();
+      addEventListener("load", go, { once: true });
+    }
+  }
+
   /* Tema claro / oscuro: alterna y recuerda la elección */
   const themeBtn = document.getElementById("themeToggle");
   const metaTheme = document.querySelector('meta[name="theme-color"]:not([media])');

@@ -7,7 +7,7 @@ const services = [
   { name: "Software a medida", text: "Sistemas web, ERP y CRM hechos para cómo trabaja tu empresa.", href: "/servicios/desarrollo-de-software-a-medida", art: table },
   { name: "Aplicaciones móviles", text: "Apps para iOS y Android que llevan tus procesos a campo y a tus clientes.", href: "/servicios/desarrollo-de-aplicaciones-moviles", art: phone, phone: true },
   { name: "Plataformas SaaS", text: "Convierte lo que tu empresa sabe hacer en un producto digital con suscripciones.", href: "/servicios/desarrollo-saas", art: saas },
-  { name: "Cloud y DevOps", text: "Infraestructura segura, despliegue continuo y monitoreo para operar sin sustos.", href: "#contacto", art: deploy, more: "Hablemos" },
+  { name: "Cloud, DevOps y auditoría", text: "Infraestructura segura, despliegue continuo, monitoreo y auditoría de tu software.", href: "/servicios/cloud-devops-y-auditoria", art: deploy },
 ];
 
 const models = [

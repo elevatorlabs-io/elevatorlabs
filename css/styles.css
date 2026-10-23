@@ -181,15 +181,22 @@ button { font: inherit; color: inherit; }
 .hero h1 .accent { color: inherit; background: linear-gradient(transparent 72%, color-mix(in srgb, var(--accent) 45%, transparent) 72%); }
 .hero-lead { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: var(--muted); max-width: 31rem; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.25rem; }
-.floors { color: var(--faint); margin: 2.75rem 0 0; max-width: 420px; }
-.floors figcaption { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
-.floors .grid { stroke: var(--line); stroke-dasharray: 2 5; }
-.floors .num { font: 500 11px var(--font-mono); fill: var(--faint); }
-.floors .lbl { font: 500 13.5px var(--font-body); fill: var(--muted); }
-.floors .lbl-on { fill: var(--text); font-weight: 600; }
-.floors .path { stroke: var(--line-strong); stroke-width: 1.5; fill: none; }
-.floors .path-on { stroke: var(--accent); stroke-width: 2.5; fill: none; }
-.floors .dot { fill: var(--accent); }
+.floors { margin: 2.75rem 0 0; max-width: 420px; }
+.fl-list { position: relative; display: grid; gap: 0.35rem; padding-left: 1.75rem; }
+/* Hueco del ascensor con la cabina detenida en el último piso */
+.fl-list::before { content: ""; position: absolute; left: 0.45rem; top: 0.6rem; bottom: 0.6rem; width: 1px; background: var(--line-strong); }
+.fl-list li { position: relative; display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: center; gap: 0.75rem; padding: 0.55rem 0; }
+.fl-list li::before { content: ""; position: absolute; left: calc(-1.75rem + 0.45rem - 3px); top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: var(--bg-soft); border: 1px solid var(--line-strong); }
+.fl-list li.is-top::before { left: calc(-1.75rem + 0.45rem - 6px); width: 13px; height: 13px; margin-top: -6.5px; border: 0; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+.fl-num { font: 500 0.78rem var(--font-mono); color: var(--faint); }
+.fl-main { display: grid; gap: 0.4rem; }
+.fl-name { font-size: 0.88rem; font-weight: 500; color: var(--muted); }
+.is-top .fl-name, .is-top .fl-num { color: var(--text); font-weight: 600; }
+.fl-bar { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.fl-bar i { display: block; height: 100%; width: var(--w); border-radius: inherit; background: var(--accent); opacity: calc(0.3 + var(--i) * 0.175); transform-origin: left; }
+.js .floors .fl-bar i { transform: scaleX(0); transition: transform 1s var(--ease); transition-delay: calc(0.25s + var(--i) * 0.12s); }
+.js .is-visible .floors .fl-bar i { transform: scaleX(1); }
+.floors figcaption { margin-top: 1.25rem; font-size: 0.85rem; color: var(--muted); }
 .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: clamp(3.5rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
 .facts div { padding: 1.4rem 1.5rem 1.6rem 0; }
 .facts div + div { padding-left: 1.5rem; border-left: 1px solid var(--line); }
@@ -392,7 +399,11 @@ a.row:hover .row-arrow { color: var(--accent-ink); transform: translateX(4px); }
 .ui-bars { display: flex; align-items: flex-end; gap: 0.45em; height: 7em; margin-top: 0.8em; }
 .ui-bars span { flex: 1; height: var(--h); border-radius: 0.25em 0.25em 0 0; background: var(--line-strong); }
 .ui-bars span.on { background: var(--accent); }
-.ui-axis { display: flex; justify-content: space-between; margin-top: 0.5em; padding-top: 0.45em; border-top: 1px solid var(--line); font-size: 0.7em; color: var(--faint); }
+.ui-axis { display: grid; grid-template-columns: 5fr 7fr; margin-top: 0.5em; font-size: 0.7em; color: var(--faint); }
+.ui-axis span { padding-top: 0.45em; border-top: 1px solid var(--line-strong); }
+.ui-axis span + span { padding-left: 0.6em; border-top-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.ui-dash .ui-pad { padding-bottom: 3em; }
+.stage .ui-toast { bottom: 0.25em; }
 .ui-toast { position: absolute; left: 0; bottom: 0; display: flex; gap: 0.7em; align-items: center; padding: 0.85em 1.1em; background: var(--surface); border: 1px solid var(--line); border-radius: 0.8em; box-shadow: var(--shadow-lg); }
 .ui-toast strong { display: block; font-size: 0.88em; }
 .ui-cmp { display: grid; gap: 1.1em; }
@@ -483,3 +494,6 @@ a.row:hover .row-arrow { color: var(--accent-ink); transform: translateX(4px); }
 .theme-fade, .theme-fade *, .theme-fade *::before, .theme-fade *::after { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease !important; }
 .theme-toggle svg { transition: transform 0.5s var(--ease); }
 .theme-toggle:active svg { transform: rotate(90deg) scale(0.85); }
+
+/* Ilustración más grande en la portada de cada servicio */
+.page-hero .stage { font-size: clamp(12px, 1.3vw, 17px); }

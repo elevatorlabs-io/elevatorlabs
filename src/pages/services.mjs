@@ -1,5 +1,5 @@
 import { SITE, SERVICE_LINKS, icon, faqBlock, ctaBand, label } from "../layout.mjs";
-import { dashboard, flow, table, phone, saas } from "../visuals.mjs";
+import { dashboard, flow, table, phone, saas, deploy } from "../visuals.mjs";
 
 // Ilustración de la portada de cada servicio
 const framed = (title, inner) => `<div class="ui ui-window"><div class="ui-bar"><i></i><i></i><i></i><span>${title}</span></div><div class="ui-pad">${inner}</div></div>`;
@@ -9,6 +9,7 @@ const ART = {
   "desarrollo-de-software-a-medida": () => framed("Gestión de pedidos", table()),
   "desarrollo-de-aplicaciones-moviles": phone,
   "desarrollo-saas": () => framed("Panel de suscripciones", saas()),
+  "cloud-devops-y-auditoria": () => framed("Despliegue continuo", deploy()),
 };
 
 // Una página por servicio, pensada para una búsqueda principal.
@@ -225,6 +226,49 @@ const SERVICES = [
       {
         q: "¿Necesitamos cambiar nuestros sistemas actuales?",
         a: "No. La idea es conectar lo que ya usas. Solo recomendamos reemplazar algo si el diagnóstico muestra que es más barato que mantenerlo.",
+      },
+    ],
+  },
+  {
+    slug: "cloud-devops-y-auditoria",
+    short: "cloud, DevOps y auditoría",
+    name: "Cloud, DevOps y auditoría de software",
+    title: "Cloud, DevOps y auditoría de software | Elevator Labs",
+    description:
+      "Infraestructura en AWS, Azure o servidores propios con Docker y CI/CD, monitoreo y auditorías de código y arquitectura para operar seguro y con menos costo.",
+    h1: 'Infraestructura confiable y <span class="accent">despliegues sin sustos</span>',
+    lead: "Llevamos tu software a la nube o a tus servidores con despliegue continuo, monitoreo y copias de seguridad, y auditamos tu código y arquitectura para reducir riesgos y costos.",
+    whatTitle: "Qué hacemos en cloud, DevOps y auditoría",
+    what: [
+      ["Arquitectura y migración a la nube", "AWS, Azure o servidores propios, elegidos por costo, rendimiento y cumplimiento."],
+      ["CI/CD y contenedores", "Docker y GitHub Actions: cada cambio probado y desplegado en minutos."],
+      ["Monitoreo y alertas", "Registros, métricas y alertas para saber que algo falla antes que tus clientes."],
+      ["Copias de seguridad y recuperación", "Respaldos automáticos y planes de recuperación probados."],
+      ["Auditoría de código y arquitectura", "Seguridad, rendimiento y deuda técnica, con un plan priorizado de mejora."],
+    ],
+    whyTitle: "Operar sin sustos y con menos costo",
+    why: [
+      "Una infraestructura mal configurada cuesta dos veces: en la factura de la nube y en las caídas que afectan a tus clientes. La dejamos segura, observable y del tamaño justo.",
+      "Automatizamos los despliegues para que publicar una mejora sea rutina y no un riesgo, con pruebas automáticas y vuelta atrás inmediata si algo sale mal.",
+      "La auditoría termina en un informe claro, con hallazgos priorizados por impacto y esfuerzo, y si quieres te acompañamos a corregirlos.",
+    ],
+    tags: ["AWS", "Azure", "Docker", "GitHub Actions", "Linux", "Grafana", "Copias de seguridad", "Seguridad"],
+    faqs: [
+      {
+        q: "¿Pueden reducir lo que pagamos en la nube?",
+        a: "Sí. Revisamos el uso real, ajustamos el tamaño de los servicios, eliminamos recursos sin uso y proponemos alternativas más económicas cuando conviene.",
+      },
+      {
+        q: "¿Qué incluye una auditoría de software?",
+        a: "Revisión del código, la arquitectura, la seguridad, el rendimiento y las prácticas de despliegue, con un informe de hallazgos priorizados y recomendaciones concretas. Suele tomar de 1 a 3 semanas.",
+      },
+      {
+        q: "¿Trabajan con nuestra infraestructura actual?",
+        a: "Sí. Podemos operar sobre tu proveedor actual o migrarte por fases sin detener el servicio.",
+      },
+      {
+        q: "¿Ofrecen soporte continuo?",
+        a: "Sí, con planes de operación que incluyen monitoreo, actualizaciones de seguridad, copias de seguridad y atención de incidentes.",
       },
     ],
   },
