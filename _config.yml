@@ -1,0 +1,5 @@
+# GitHub Pages: no publicar el código fuente del generador ni la plantilla de imágenes.
+exclude:
+  - src
+  - scripts
+  - README.md

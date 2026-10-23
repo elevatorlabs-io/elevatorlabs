@@ -2,22 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://elevatorlabs.io/</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://elevatorlabs.io/terms-of-service</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://elevatorlabs.io/servicios/mejora-de-procesos</loc>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://elevatorlabs.io/pulso/privacy-policy</loc>
-    <changefreq>yearly</changefreq>
+    <loc>https://elevatorlabs.io/servicios/desarrollo-de-software-a-medida</loc>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://elevatorlabs.io/servicios/desarrollo-de-aplicaciones-moviles</loc>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://elevatorlabs.io/servicios/desarrollo-saas</loc>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://elevatorlabs.io/servicios/integraciones-e-inteligencia-artificial</loc>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://elevatorlabs.io/terms-of-service</loc>
+    <lastmod>2026-10-23</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://elevatorlabs.io/pulso/terms-of-service</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://elevatorlabs.io/pulso/privacy-policy</loc>
+    <lastmod>2026-10-23</lastmod>
+    <priority>0.2</priority>
   </url>
 </urlset>
