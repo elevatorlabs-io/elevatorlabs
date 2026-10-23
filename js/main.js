@@ -137,6 +137,37 @@
     });
   }
 
+  /* Preguntas frecuentes: un solo desplegable abierto a la vez, con animación de entrada y salida */
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
+  const slide = (details, open) => {
+    const body = details.querySelector(":scope > div");
+    if (!body || calm) { details.open = open; return; }
+    body.getAnimations().forEach((a) => a.cancel());
+    if (open) {
+      details.open = true;
+      const h = body.scrollHeight;
+      body.animate([{ height: "0px", opacity: 0, transform: "translateY(-6px)" }, { height: h + "px", opacity: 1, transform: "none" }], { duration: 320, easing: EASE });
+    } else {
+      const h = body.scrollHeight;
+      const anim = body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 240, easing: EASE });
+      anim.onfinish = () => { details.open = false; };
+    }
+  };
+  document.querySelectorAll(".faq").forEach((faq) => {
+    const items = [...faq.querySelectorAll(":scope > details")];
+    items.forEach((d) => {
+      const body = d.querySelector(":scope > div");
+      if (body) body.style.overflow = "hidden";
+      d.querySelector(":scope > summary")?.addEventListener("click", (e) => {
+        e.preventDefault();
+        const opening = !d.open;
+        if (opening) items.forEach((o) => { if (o !== d && o.open) slide(o, false); });
+        slide(d, opening);
+      });
+    });
+  });
+
   /* Año del pie */
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
