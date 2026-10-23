@@ -1577,3 +1577,229 @@ button {
   background: var(--teal-500);
   color: var(--navy-950);
 }
+
+/* ==========================================================================
+   Productos propios (Pulso): capturas reales en marcos de navegador y celular
+   ========================================================================== */
+.product {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.product-glow {
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: min(60rem, 90vw);
+  aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgba(1, 96, 251, 0.28), transparent 70%), radial-gradient(closest-side at 70% 60%, rgba(4, 190, 253, 0.16), transparent 70%);
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.product-head {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.product-logo {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+  margin: 0.25rem 0 1.25rem;
+}
+
+.product-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.product-stage {
+  position: relative;
+  padding: 0 clamp(2.5rem, 9vw, 7rem) clamp(2rem, 4vw, 3rem) 0;
+}
+
+.product-stage figure,
+.product-shot {
+  margin: 0;
+}
+
+.device-browser {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--navy-800);
+  border: 1px solid var(--line-dark);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.device-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--navy-900);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.device-bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+  opacity: 0.85;
+}
+
+.device-bar i:nth-child(2) { background: #febc2e; }
+.device-bar i:nth-child(3) { background: #28c840; }
+
+.device-bar span {
+  margin-inline: auto;
+  padding: 0.2rem 1.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.75rem;
+  color: var(--text-light-muted);
+  transform: translateX(-1.2rem);
+}
+
+.device-browser img,
+.device-phone img,
+.product-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.device-phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(6.5rem, 20%, 14rem);
+  padding: 6px;
+  border-radius: 28px;
+  background: var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.8);
+}
+
+.device-phone img {
+  border-radius: 22px;
+}
+
+.product-features {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.product-card {
+  padding: 0.75rem 0.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line-dark);
+  transition: border-color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring);
+}
+
+.product-card:hover {
+  border-color: rgba(45, 212, 191, 0.35);
+  transform: translateY(-3px);
+}
+
+.product-shot {
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 0.6rem);
+  background: var(--navy-900);
+}
+
+.product-shot img {
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+.product-card h3 {
+  margin: 1.25rem 0.75rem 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.product-card p {
+  margin: 0 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-light-muted);
+}
+
+.product-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-facts li {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+@media (min-width: 900px) {
+  .product-head {
+    grid-template-columns: 5fr 6fr;
+    gap: 4rem;
+  }
+
+  .product-features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Acceso a Pulso desde la portada */
+.hero-product {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  padding: 0.45rem 0.9rem 0.45rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-dark);
+  color: var(--text-light-muted);
+  font-size: 0.875rem;
+  transition: border-color var(--dur-fast) ease, color var(--dur-fast) ease, transform var(--dur-fast) var(--ease-spring);
+}
+
+.hero-product img {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: var(--white);
+}
+
+.hero-product strong {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.hero-product svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.hero-product:hover {
+  color: var(--text-light);
+  border-color: rgba(45, 212, 191, 0.4);
+  transform: translateY(-1px);
+}

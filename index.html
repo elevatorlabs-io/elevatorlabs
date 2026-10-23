@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;650;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=commit5" />
+<link rel="stylesheet" href="css/styles.css?v=productos1" />
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="Elevator Labs" />
@@ -111,6 +111,7 @@
       <a href="#servicios" data-nav>Servicios</a>
       <a href="#nosotros" data-nav>Nosotros</a>
       <a href="#proceso" data-nav>Proceso</a>
+      <a href="#productos" data-nav>Productos</a>
       <a href="#compromiso" data-nav>Compromiso</a>
       <!-- <a href="#testimonios" data-nav>Clientes</a> -- reactivar junto con la sección de Testimonios -->
       <a href="#contacto" data-nav>Contacto</a>
@@ -129,6 +130,7 @@
   <a href="#servicios" data-nav>Servicios</a>
   <a href="#nosotros" data-nav>Nosotros</a>
   <a href="#proceso" data-nav>Proceso</a>
+  <a href="#productos" data-nav>Productos</a>
   <a href="#compromiso" data-nav>Compromiso</a>
   <!-- <a href="#testimonios" data-nav>Clientes</a> reactivar junto con la sección de Testimonios -->
   <a href="#contacto" data-nav>Contacto</a>
@@ -143,7 +145,11 @@
     <div class="hero-diagonal" aria-hidden="true"></div>
 
     <div class="container hero-inner">
-      <span class="hero-eyebrow" data-reveal><span class="dot"></span> Casa de tecnología para empresas</span>
+      <a href="#productos" class="hero-product" data-reveal>
+        <img src="assets/images/pulso/pulso-icon.svg" alt="" width="20" height="20" />
+        <span><strong>Nuevo:</strong> Pulso, presentaciones en vivo con la audiencia</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
 
       <h1 class="hero-title" data-reveal style="--reveal-delay:.1s">
         Creamos, auditamos y <span class="gradient-text">optimizamos</span> la tecnología de tu operación
@@ -486,6 +492,63 @@
     </div>
   </section>
 
+  <!-- ============ PRODUCTOS PROPIOS: PULSO (capturas reales de la app) ============ -->
+  <section class="section section--dark product" id="productos" aria-labelledby="product-title">
+    <div class="product-glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="product-head">
+        <div data-reveal-x="left">
+          <span class="section-tag">Productos propios</span>
+          <img class="product-logo" src="assets/images/pulso/pulso-logo-blanco.svg" alt="Pulso" width="146" height="50" />
+          <h2 class="section-title" id="product-title">Presentaciones que la sala <span class="gradient-text">responde</span>, no solo mira</h2>
+        </div>
+        <div data-reveal-x="right">
+          <p class="section-desc">También construimos producto propio, con el mismo criterio que aplicamos en cada proyecto. Pulso convierte un PDF o un PowerPoint en una sesión en vivo: la audiencia entra desde el celular con un código, responde, suma puntos y quien presenta ve los resultados al instante.</p>
+          <div class="product-ctas">
+            <a href="https://pulso.elevatorlabs.io" target="_blank" rel="noopener" class="btn btn-primary">Conocer Pulso</a>
+            <a href="https://pulso.elevatorlabs.io/join" target="_blank" rel="noopener" class="btn btn-ghost">Tengo un código</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-stage" data-reveal>
+        <figure class="device-browser">
+          <div class="device-bar" aria-hidden="true"><i></i><i></i><i></i><span>pulso.elevatorlabs.io</span></div>
+          <img src="assets/images/pulso/presenter-dark.webp" alt="Sala de Pulso en vivo: quien presenta lanza una pregunta y ve llegar las respuestas" width="1600" height="1000" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="device-phone">
+          <img src="assets/images/pulso/phone-question-dark.webp" alt="La misma pregunta en el celular de una persona de la audiencia" width="600" height="1298" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+
+      <div class="product-features">
+        <article class="product-card" data-reveal>
+          <div class="product-shot"><img src="assets/images/pulso/live-dark.webp" alt="Respuestas que llegan en vivo mientras corre el tiempo" width="1000" height="600" loading="lazy" decoding="async" /></div>
+          <h3>Preguntas en vivo</h3>
+          <p>Opción múltiple, verdadero o falso o abiertas. Las respuestas llegan mientras corre el tiempo, y la IA puede proponerlas desde tu archivo.</p>
+        </article>
+        <article class="product-card" data-reveal style="--reveal-delay:.08s">
+          <div class="product-shot"><img src="assets/images/pulso/ranking-dark.webp" alt="Ranking de la sala con el podio de participantes" width="1200" height="720" loading="lazy" decoding="async" /></div>
+          <h3>Puntos y ranking</h3>
+          <p>Cada respuesta suma. La sala ve quién va adelante y los puntos se canjean por los premios que definas.</p>
+        </article>
+        <article class="product-card" data-reveal style="--reveal-delay:.16s">
+          <div class="product-shot"><img src="assets/images/pulso/analytics-dark.webp" alt="Panel de analítica de Pulso con la actividad por día" width="1600" height="1000" loading="lazy" decoding="async" style="object-position:62% 30%" /></div>
+          <h3>Analítica de cada sesión</h3>
+          <p>Participación por sala, respuestas por pregunta y actividad diaria, sin hojas de cálculo.</p>
+        </article>
+      </div>
+
+      <ul class="product-facts" data-reveal>
+        <li>Sin instalar nada</li>
+        <li>Control remoto desde el celular</li>
+        <li>Voz en vivo</li>
+        <li>Cinco idiomas</li>
+        <li>Modo claro y oscuro</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ============ PORTFOLIO (desactivada) ============
        La empresa es nueva y todavía no hay proyectos reales que mostrar.
        Se deja el bloque completo comentado para reactivarlo más adelante:
@@ -813,6 +876,7 @@
         <h4 class="footer-col-title">Compañía</h4>
         <ul>
           <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#productos">Pulso</a></li>
           <li><a href="#compromiso">Compromiso</a></li>
           <!-- <li><a href="#testimonios">Clientes</a></li> reactivar junto con la sección de Testimonios -->
           <li><a href="#faq">FAQ</a></li>
@@ -843,6 +907,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=commit3"></script>
+<script src="js/main.js?v=productos1"></script>
 </body>
 </html>

@@ -28,6 +28,7 @@ Landing page moderna, responsive y sin build step (HTML + CSS + JS puro), lista 
 4. **Servicios** — lista tipo acordeón (6 servicios).
 5. **Por qué Elevator Labs** — sección oscura, layout asimétrico 2×2.
 6. **Proceso** — línea de tiempo con 4 pasos (horizontal en desktop, vertical en mobile).
+6b. **Productos propios (Pulso)** — sección oscura con capturas reales de la app (navegador, celular y tres tarjetas) en `assets/images/pulso/`; la portada lo anuncia con una píldora sobre el título. Las capturas se regeneran con `pulso_web/scripts/landing-shots`.
 7. **Proyectos** — grid de proyectos destacados con overlay al hover.
 8. **Testimonios** — formato "pull quote" + foto y cargo.
 9. **FAQ** — acordeón de preguntas frecuentes.

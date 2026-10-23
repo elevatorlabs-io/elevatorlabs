@@ -101,7 +101,11 @@
       },
       { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
     );
-    revealTargets.forEach((el) => revealObserver.observe(el));
+    revealTargets.forEach((el) => {
+      // La portada se ve completa al cargar (con su animación), sin esperar al scroll.
+      if (el.closest(".hero")) requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("is-visible")));
+      else revealObserver.observe(el);
+    });
   } else {
     revealTargets.forEach((el) => el.classList.add("is-visible"));
   }
