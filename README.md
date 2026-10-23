@@ -7,12 +7,13 @@ Sitio público de Elevator Labs (`elevatorlabs.io`): empresa que impulsa la efic
 | Ruta | Qué contiene |
 |---|---|
 | `src/layout.mjs` | Plantilla común: `<head>` con SEO, cabecera, pie, iconos, JSON-LD de la organización, carrusel de tecnologías, diagrama de «pisos» y llamado final. |
+| `src/visuals.mjs` | Ilustraciones de producto en HTML/CSS (tablero, flujo, tabla, app, SaaS, despliegue); escalan con `font-size` y siguen el tema. |
 | `src/pages/home.mjs` | Portada: textos, servicios, modelos de trabajo, método y preguntas frecuentes. |
 | `src/pages/services.mjs` | Páginas de servicio (`/servicios/…`), una por búsqueda principal. |
 | `scripts/build.mjs` | Genera `index.html`, `servicios/*.html` y `sitemap.xml`. |
 | `scripts/og.html` | Plantilla de la imagen para redes y de los iconos PNG. |
 | `css/styles.css` | Estilos (tokens de claro y oscuro, componentes). |
-| `js/main.js` | Tema, menú móvil, aparición al hacer scroll y formulario. |
+| `js/main.js` | Tema con transición, menú móvil, aparición al hacer scroll y formulario. |
 | `index.html`, `servicios/`, `sitemap.xml` | **Generados**: no se editan a mano. |
 | `terms-of-service.html`, `pulso/` | Páginas legales (estáticas, ver abajo). |
 | `assets/images/` | Logos, imagen para redes y logos de tecnologías (ver su `README.md`). |
@@ -70,10 +71,12 @@ Cada página tiene `title` y `description` propios, URL canónica, `hreflang` (`
 ## Diseño
 
 - Lenguaje editorial: columnas asimétricas, filetes finos en lugar de tarjetas, turquesa `#2dd4bf` solo como acento sobre negro `#060708` o blanco.
-- Tema: sigue la preferencia del sistema; el botón de la cabecera lo fija en `localStorage` (`theme`). Un script en línea del `<head>` lo aplica antes de pintar.
+- Tema: sigue la preferencia del sistema; el botón de la cabecera lo fija en `localStorage` (`theme`). Un script en línea del `<head>` lo aplica antes de pintar. Al cambiarlo, el nuevo tema se revela en un círculo desde el botón (View Transitions API); sin soporte, hace un fundido de colores, y con «reducir movimiento» cambia sin animación.
+- Imágenes: no hay fotos de archivo. Cada servicio y la portada usan ilustraciones de `src/visuals.mjs` (los números son ilustrativos). **Añadir una:** exporta una función que devuelva HTML con la clase `ui`, dale estilos `ui-*` en unidades `em` y úsala en `services` (portada) o en `ART` (`src/pages/services.mjs`).
+- Menú móvil: se despliega de arriba abajo con los enlaces en cascada y la hamburguesa se convierte en X.
 - Tipografías: Sora (títulos) e Inter (texto) desde Google Fonts con `display=swap`.
-- Carrusel de tecnologías: `STACK` en `src/layout.mjs`; se detiene al pasar el ratón y queda estático con «reducir movimiento». Para añadir una, pon su SVG en `assets/images/tech/` y agrégala a `STACK`.
-- El diagrama de «pisos» de la portada representa el método (`floorsFigure()`).
+- Carrusel de tecnologías: `STACK` en `src/layout.mjs`; nunca se detiene. Los logos van en gris y, al pasar el cursor, crecen y se ponen a color (los casi negros, listados en `MONO`, se invierten en modo oscuro). Queda estático con «reducir movimiento». Para añadir una, pon su SVG en `assets/images/tech/` y agrégala a `STACK`.
+- El diagrama de «pisos» de la sección Método representa el ciclo de mejora (`floorsFigure()`).
 
 ## Imágenes para redes
 

@@ -15,11 +15,35 @@
     if (metaTheme) metaTheme.content = dark ? "#050607" : "#ffffff";
   };
   if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      const next = isDark() ? "light" : "dark";
+    const applyTheme = (next) => {
       root.dataset.theme = next;
       try { localStorage.setItem("theme", next); } catch (e) { /* sin almacenamiento */ }
       syncThemeUi();
+    };
+    themeBtn.addEventListener("click", () => {
+      const next = isDark() ? "light" : "dark";
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // Sin View Transitions: fundido suave de colores
+      if (!document.startViewTransition || reduced) {
+        if (!reduced) {
+          root.classList.add("theme-fade");
+          setTimeout(() => root.classList.remove("theme-fade"), 450);
+        }
+        applyTheme(next);
+        return;
+      }
+      // Con View Transitions: el nuevo tema se revela en un círculo que crece desde el botón
+      const r = themeBtn.getBoundingClientRect();
+      const x = r.left + r.width / 2;
+      const y = r.top + r.height / 2;
+      const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+      const transition = document.startViewTransition(() => applyTheme(next));
+      transition.ready.then(() => {
+        root.animate(
+          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+          { duration: 650, easing: "cubic-bezier(0.22, 1, 0.36, 1)", pseudoElement: "::view-transition-new(root)" }
+        );
+      });
     });
   }
   syncThemeUi();

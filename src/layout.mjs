@@ -155,7 +155,7 @@ export function page(p) {
     <div class="header-actions">
       <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Cambiar tema">${icon("moon", "i-moon")}${icon("sun", "i-sun")}</button>
       <a href="${pre}#contacto" class="btn btn-primary btn-sm">Agenda un diagnóstico</a>
-      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">${icon("menu")}</button>
+      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
     </div>
   </div>
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">${navLinks}<a href="${pre}#contacto" class="btn btn-primary">Agenda un diagnóstico</a></nav>
@@ -251,10 +251,12 @@ const STACK = [
   ["AWS", "aws"], ["Azure", "azure"], ["Docker", "docker"], ["GitHub", "github"], ["n8n", "n8n"], ["Grafana", "grafana"],
   ["OpenAI", "openai"], ["Anthropic", "anthropic"], ["Gemini", "gemini"], ["TensorFlow", "tensorflow"], ["Figma", "figma"],
 ];
+// Logos casi negros: en modo oscuro se invierten al ponerse a color
+const MONO = new Set(["anthropic", "github", "nextjs", "openai", "aws"]);
 export function stackStrip() {
   const list = (hidden) =>
     `<ul${hidden ? ' aria-hidden="true"' : ""}>${STACK.map(
-      ([n, f]) => `<li><img src="/assets/images/tech/${f}.svg" alt="" width="22" height="22" loading="lazy" decoding="async" />${n}</li>`
+      ([n, f]) => `<li${MONO.has(f) ? ' class="mono"' : ""}><img src="/assets/images/tech/${f}.svg" alt="" width="24" height="24" loading="lazy" decoding="async" />${n}</li>`
     ).join("")}</ul>`;
   return `<section class="container stack" id="tecnologias" aria-labelledby="stack-title">
   <h2 id="stack-title">Tecnologías con las que trabajamos</h2>

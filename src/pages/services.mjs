@@ -1,4 +1,15 @@
 import { SITE, SERVICE_LINKS, icon, faqBlock, ctaBand, label } from "../layout.mjs";
+import { dashboard, flow, table, phone, saas } from "../visuals.mjs";
+
+// Ilustración de la portada de cada servicio
+const framed = (title, inner) => `<div class="ui ui-window"><div class="ui-bar"><i></i><i></i><i></i><span>${title}</span></div><div class="ui-pad">${inner}</div></div>`;
+const ART = {
+  "mejora-de-procesos": dashboard,
+  "integraciones-e-inteligencia-artificial": () => framed("Flujo automático", flow()),
+  "desarrollo-de-software-a-medida": () => framed("Gestión de pedidos", table()),
+  "desarrollo-de-aplicaciones-moviles": phone,
+  "desarrollo-saas": () => framed("Panel de suscripciones", saas()),
+};
 
 // Una página por servicio, pensada para una búsqueda principal.
 const SERVICES = [
@@ -239,12 +250,13 @@ function render(s) {
           <a href="/#modelos" class="btn btn-secondary">Modelos de trabajo</a>
         </div>
       </div>
+      <div class="stage" aria-hidden="true">${ART[s.slug]()}</div>
     </div>
     <dl class="facts">
       <div><dt>Diagnóstico inicial</dt><dd>Sin costo y sin compromiso</dd></div>
       <div><dt>Propuesta en 48 horas</dt><dd>Alcance, indicadores y precio</dd></div>
       <div><dt>Avances cada semana</dt><dd>Demo con tu equipo</dd></div>
-      <div><dt>Resultados medibles</dt><dd>Antes y después, con datos</dd></div>
+      <div><dt>El código es tuyo</dt><dd>Por contrato, sin dependencia</dd></div>
     </dl>
   </div>
 </section>
