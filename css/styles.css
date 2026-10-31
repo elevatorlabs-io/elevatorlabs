@@ -364,8 +364,8 @@ a.row:hover .row-arrow { color: var(--accent-ink); transform: translateX(4px); }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-grid > div:first-child { grid-column: 1 / -1; } }
 
 /* ---------- Entrada al hacer scroll (solo con JS; sin JS todo es visible) ---------- */
-.js [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.js [data-reveal].is-visible { opacity: 1; transform: none; }
+.js [data-reveal] { opacity: 0; transform: translateY(28px); filter: blur(6px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease); transition-delay: var(--reveal-delay, 0ms); }
+.js [data-reveal].is-visible { opacity: 1; transform: none; filter: none; }
 
 /* Móvil pequeño */
 @media (max-width: 520px) {
@@ -497,3 +497,42 @@ a.row:hover .row-arrow { color: var(--accent-ink); transform: translateX(4px); }
 
 /* Ilustración más grande en la portada de cada servicio */
 .page-hero .stage { font-size: clamp(12px, 1.3vw, 17px); }
+
+/* Cargador inicial: un ascensor sube de piso en piso hasta «LABS» y abre sus puertas (una vez por visita) */
+.boot { display: none; }
+html.boot-on .boot { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; pointer-events: none; }
+html.boot-on { overflow: hidden; }
+.boot-door { position: absolute; top: 0; bottom: 0; width: 50.5%; background: var(--bg); animation: boot-door 0.75s var(--ease) 1.05s forwards; }
+.boot-door-l { left: 0; --dir: -1; box-shadow: inset -1px 0 0 var(--line); }
+.boot-door-r { right: 0; --dir: 1; box-shadow: inset 1px 0 0 var(--line); }
+.boot-core { position: relative; display: grid; justify-items: center; gap: 1.1rem; animation: boot-out 0.3s ease 0.95s forwards; }
+.boot-mark { width: 56px; height: 56px; animation: boot-rise 0.6s var(--ease) both; }
+.boot-floors { height: 1.3em; overflow: hidden; font: 600 0.8rem/1.3 var(--font-mono); letter-spacing: 0.35em; color: var(--muted); text-align: center; }
+.boot-floors span { display: block; animation: boot-count 0.8s steps(4, end) 0.1s forwards; }
+.boot-bar { width: 9rem; height: 2px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.boot-bar::after { content: ""; display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; animation: boot-load 0.85s var(--ease) 0.05s forwards; box-shadow: 0 0 12px var(--accent); }
+@keyframes boot-door { to { transform: translateX(calc(var(--dir) * 100%)); } }
+@keyframes boot-out { to { opacity: 0; transform: scale(0.96); } }
+@keyframes boot-rise { from { opacity: 0; transform: translateY(12px) scale(0.9); } }
+@keyframes boot-count { to { transform: translateY(-5.2em); } }
+@keyframes boot-load { to { transform: scaleX(1); } }
+
+/* Entrada del hero (tras el cargador si lo hubo) */
+.js .hero-grid > div:first-child > * { animation: hero-in 0.9s var(--ease) both; animation-delay: calc(var(--i, 0) * 90ms + 0.1s); }
+.js .hero .stage { animation: hero-stage 1.1s var(--ease) both 0.35s; }
+html.boot-on .hero-grid > div:first-child > * { animation-delay: calc(var(--i, 0) * 90ms + 1.25s); }
+html.boot-on .hero .stage { animation-delay: 1.5s; }
+.hero-grid > div:first-child > :nth-child(2) { --i: 1; }
+.hero-grid > div:first-child > :nth-child(3) { --i: 2; }
+.hero-grid > div:first-child > :nth-child(4) { --i: 3; }
+@keyframes hero-in { from { opacity: 0; transform: translateY(22px); filter: blur(6px); } }
+@keyframes hero-stage { from { opacity: 0; transform: translateY(30px) scale(0.97); } }
+[data-parallax] { will-change: transform; }
+
+/* Progreso de lectura: una línea turquesa arriba que avanza con el scroll */
+.scroll-progress { position: fixed; top: 0; left: 0; right: 0; z-index: 150; height: 2px; background: var(--accent); transform: scaleX(var(--progress, 0)); transform-origin: left; box-shadow: 0 0 10px var(--accent); pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .boot, .scroll-progress { display: none !important; }
+  .js .hero-grid > div:first-child > *, .js .hero .stage { animation: none; }
+}

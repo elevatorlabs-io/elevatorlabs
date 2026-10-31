@@ -106,7 +106,26 @@
         if (entry.isIntersecting) { entry.target.classList.add("is-visible"); io.unobserve(entry.target); }
       });
     }, { rootMargin: "0px 0px -8% 0px" });
-    revealables.forEach((el) => io.observe(el));
+    revealables.forEach((el) => {
+      // Escalonado: los hermanos que aparecen juntos (tarjetas, filas) entran uno tras otro.
+      const siblings = el.parentElement ? [...el.parentElement.children].filter((c) => c.hasAttribute("data-reveal")) : [];
+      if (siblings.length > 1) el.style.setProperty("--reveal-delay", `${(siblings.indexOf(el) % 6) * 80}ms`);
+      io.observe(el);
+    });
+
+    /* Progreso de lectura y parallax suave del tablero del hero */
+    const progress = document.querySelector(".scroll-progress");
+    const stage = document.querySelector(".hero .stage");
+    if (stage) stage.setAttribute("data-parallax", "");
+    let ticking = false;
+    const frame = () => {
+      ticking = false;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (progress) progress.style.setProperty("--progress", max > 0 ? String(Math.min(1, scrollY / max)) : "0");
+      if (stage && scrollY < innerHeight * 1.2) stage.style.translate = `0 ${Math.round(scrollY * -0.08)}px`;
+    };
+    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+    frame();
   } else {
     revealables.forEach((el) => el.classList.add("is-visible"));
   }

@@ -116,6 +116,7 @@ export function page(p) {
 <meta name="author" content="Elevator Labs" />
 <meta name="theme-color" content="#ffffff" />
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>document.documentElement.classList.add("js");try{if(!sessionStorage.getItem("boot")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.documentElement;d.classList.add("boot-on");sessionStorage.setItem("boot","1");setTimeout(function(){d.classList.remove("boot-on")},1900)}}catch(e){}</script>
 <link rel="icon" href="/assets/images/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/logos/icono.svg" />
 <link rel="apple-touch-icon" href="/assets/images/logos/apple-touch-icon.png" />
@@ -144,6 +145,15 @@ export function page(p) {
 <script type="application/ld+json">${jsonld.replace(/</g, "\\u003c")}</script>
 </head>
 <body>
+<div class="boot" aria-hidden="true">
+  <div class="boot-door boot-door-l"></div><div class="boot-door boot-door-r"></div>
+  <div class="boot-core">
+    <img class="boot-mark" src="/assets/images/logos/icono.svg" alt="" width="56" height="56" />
+    <div class="boot-floors"><span>01<br />02<br />03<br />04<br />LABS</span></div>
+    <div class="boot-bar"></div>
+  </div>
+</div>
+<div class="scroll-progress" aria-hidden="true"></div>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <header class="site-header">
