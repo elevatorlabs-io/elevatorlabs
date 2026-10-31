@@ -12,15 +12,15 @@
 <meta name="author" content="Elevator Labs" />
 <meta name="theme-color" content="#ffffff" />
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
-<script>document.documentElement.classList.add("js");try{if(!sessionStorage.getItem("boot")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.documentElement;d.classList.add("boot-on");sessionStorage.setItem("boot","1");setTimeout(function(){d.classList.remove("boot-on")},1900)}}catch(e){}</script>
+<script>document.documentElement.classList.add("js");try{if(!location.hash&&!sessionStorage.getItem("boot")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){var d=document.documentElement;d.classList.add("boot-on");sessionStorage.setItem("boot","1");history.scrollRestoration="manual";scrollTo(0,0);setTimeout(function(){d.classList.remove("boot-on")},2800)}}catch(e){}</script>
 <link rel="icon" href="/assets/images/favicon.ico" sizes="any" />
 <link rel="icon" type="image/svg+xml" href="/assets/images/logos/icono.svg" />
 <link rel="apple-touch-icon" href="/assets/images/logos/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" />
-<link rel="stylesheet" href="/css/styles.css?v=8d40aef3" />
-<script src="/js/main.js?v=318487b5" defer></script>
+<link rel="stylesheet" href="/css/styles.css?v=f03af167" />
+<script src="/js/main.js?v=a023c8c4" defer></script>
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Elevator Labs" />
@@ -44,12 +44,11 @@
 <div class="boot" aria-hidden="true">
   <div class="boot-door boot-door-l"></div><div class="boot-door boot-door-r"></div>
   <div class="boot-core">
-    <img class="boot-mark" src="/assets/images/logos/icono.svg" alt="" width="56" height="56" />
+    <div class="boot-logo"><img class="logo-light" src="/assets/images/logos/logo-labs-negro.svg" alt="" width="117" height="34" /><img class="logo-dark" src="/assets/images/logos/logo-labs-blanco.svg" alt="" width="117" height="34" /></div>
     <div class="boot-floors"><span>01<br />02<br />03<br />04<br />LABS</span></div>
     <div class="boot-bar"></div>
   </div>
 </div>
-<div class="scroll-progress" aria-hidden="true"></div>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <header class="site-header">

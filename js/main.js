@@ -98,6 +98,21 @@
     byId.forEach((_, id) => { const el = document.getElementById(id); if (el) spy.observe(el); });
   }
 
+  /* Cargador: al abrirse las puertas, el logo grande vuela a su sitio en la cabecera */
+  const bootLogo = document.querySelector(".boot-logo");
+  const brand = document.querySelector(".site-header .brand");
+  if (root.classList.contains("boot-on") && bootLogo && brand) {
+    scrollTo(0, 0); // el navegador puede restaurar el scroll anterior: el cargador empieza siempre arriba
+    setTimeout(() => {
+      const from = bootLogo.getBoundingClientRect();
+      const to = brand.getBoundingClientRect();
+      const dx = to.left + to.width / 2 - (from.left + from.width / 2);
+      const dy = to.top + to.height / 2 - (from.top + from.height / 2);
+      bootLogo.style.transition = "transform 0.95s cubic-bezier(0.65, 0, 0.25, 1)";
+      bootLogo.style.transform = `translate(${dx}px, ${dy}px) scale(${to.height / from.height})`;
+    }, Math.max(0, 1700 - performance.now()));
+  }
+
   /* Aparición suave al entrar en pantalla */
   const revealables = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -113,15 +128,12 @@
       io.observe(el);
     });
 
-    /* Progreso de lectura y parallax suave del tablero del hero */
-    const progress = document.querySelector(".scroll-progress");
+    /* Parallax suave del tablero del hero */
     const stage = document.querySelector(".hero .stage");
     if (stage) stage.setAttribute("data-parallax", "");
     let ticking = false;
     const frame = () => {
       ticking = false;
-      const max = document.documentElement.scrollHeight - innerHeight;
-      if (progress) progress.style.setProperty("--progress", max > 0 ? String(Math.min(1, scrollY / max)) : "0");
       if (stage && scrollY < innerHeight * 1.2) stage.style.translate = `0 ${Math.round(scrollY * -0.08)}px`;
     };
     addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
