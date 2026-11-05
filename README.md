@@ -15,7 +15,7 @@ Sitio público de Elevator Labs (`elevatorlabs.io`): empresa que impulsa la efic
 | `css/styles.css` | Estilos (tokens de claro y oscuro, componentes). |
 | `js/main.js` | Tema con transición, menú móvil, aparición al hacer scroll y formulario. |
 | `index.html`, `servicios/`, `sitemap.xml` | **Generados**: no se editan a mano. |
-| `terms-of-service.html`, `pulso/` | Páginas legales (estáticas, ver abajo). |
+| `terms-of-service.html`, `pulso/`, `talai/` | Páginas legales (estáticas, ver abajo). |
 | `assets/images/` | Logos, imagen para redes y logos de tecnologías (ver su `README.md`). |
 | `_config.yml` | Excluye `src/` y `scripts/` de la publicación en GitHub Pages. |
 
@@ -107,6 +107,8 @@ En español, inglés, portugués y francés (prevalece el español), con selecto
 | Términos y Condiciones Generales de Elevator Labs (marco de todos los productos) | `/terms-of-service` | `css/legal.css` + `js/legal.js` |
 | Términos de servicio de Pulso (condiciones particulares) | `/pulso/terms-of-service` | `pulso/legal.css` + `pulso/legal.js` |
 | Política de tratamiento de datos personales de Pulso | `/pulso/privacy-policy` | `pulso/legal.css` + `pulso/legal.js` |
+| Términos de servicio de Talai (condiciones particulares) | `/talai/terms-of-service` | `talai/legal.css` + `talai/legal.js` |
+| Política de tratamiento de datos personales de Talai | `/talai/privacy-policy` | `talai/legal.css` + `talai/legal.js` |
 
 - Titular: Elevator Labs como nombre comercial de su titular, con domicilio en Medellín; ley colombiana (Leyes 527 de 1999, 1480 de 2011 y 1581 de 2012). Cuando se constituya la sociedad, actualiza la sección «Identificación del titular» y el «Responsable» de la política de datos (los términos ya prevén la cesión).
 - Al cambiar un texto, cámbialo en los cuatro idiomas, conserva los mismos `id` de sección y actualiza la fecha de «Última actualización». Si el cambio es sustancial, los términos obligan a avisar con 15 días (30 si es un precio).

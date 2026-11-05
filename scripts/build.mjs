@@ -38,6 +38,8 @@ const legal = [
   ["/terms-of-service", "0.3"],
   ["/pulso/terms-of-service", "0.2"],
   ["/pulso/privacy-policy", "0.2"],
+  ["/talai/terms-of-service", "0.2"],
+  ["/talai/privacy-policy", "0.2"],
 ];
 const urls = [...pages.map((p) => [p.path, p.priority]), ...legal]
   .map(([path, priority]) => `  <url>\n    <loc>${SITE.url}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`)
